@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{%block title %}Board{%endblock%}
+
+
+{%block body%}
+<section id="board">
+<table class="board">
+    <tbody>
+    {% for row in board %}
+    <tr>
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</section>
+
+
+<form class = "guess-from" name = "guess-form" method="POST">
+    <div>
+    <label for="guess">Guess a word!</label>
+    <input class ="guess" type="text" name= "guess" placeholder="Enter Guess:">
+    <button>Submit!</button>
+
+    </div>
+    <!-- <button>Submit!</button> -->
+</form>
+{%endblock%}

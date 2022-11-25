@@ -2,6 +2,8 @@ console.log("The File is loading!")
 
 const $guess_form = $(".guess-from")
 const $result = $(".result")
+const $score = $(".score")
+//const $timer = 60
 
 async function handle_Submit(evt){
     evt.preventDefault();
@@ -17,9 +19,11 @@ async function handle_Submit(evt){
     } else if(res.data.response === "not-word"){
         $result.text(`${guess} is not a word`)
     }else{
-
+        console.log($score.text(`Score: ${res.data.score}`))
     }
 
 }
-
+// guess = setInterval($guess_form.on("submit", handle_Submit), 60000)
+// console.log('1 minute')
+// clearInterval(guess)
 $guess_form.on("submit", handle_Submit)
